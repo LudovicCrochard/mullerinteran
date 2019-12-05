@@ -1,3 +1,22 @@
+#' @title Moyenne d'un vecteur numerique
+#' @description Cette fonction calcule la moyenne d'un vecteur numerique en
+#'   omettant les valeurs manquantes si l'utilisateur le souhaite.
+#'
+#' @param x Un vecteur numerique sur lequel sera calculer la moyenne
+#' @param na_rm Si TRUE supprime les NA (Defaut : FALSE)
+#'
+#' @return La fonction renvoie la moyenne du vecteur x.
+#'
+#' @import magrittr
+#' @importFrom stats na.omit
+#'
+#' @export
+#'
+#' @examples
+#' moyenne(c(2, 4))
+#'
+
+
 moyenne <- function(x, na_rm = FALSE) {
   ## Checks                         ----------
   if (missing(x)) { stop("Missing x.") }
