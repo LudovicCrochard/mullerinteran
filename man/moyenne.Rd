@@ -2,21 +2,20 @@
 % Please edit documentation in R/int_an_eff.R
 \name{moyenne}
 \alias{moyenne}
-\title{Moyenne d'un vecteur numerique}
+\title{Effet indirect pour des interactions inter annuelles}
 \usage{
 moyenne(x, na_rm = FALSE)
 }
 \arguments{
-\item{x}{Un vecteur numerique sur lequel sera calculer la moyenne}
-
-\item{na_rm}{Si TRUE supprime les NA (Defaut : FALSE)}
+\item{x}{Une matrice}
 }
 \value{
-La fonction renvoie la moyenne du vecteur x.
+La fonction renvoie la valeur de l'indice de Muller pour chaque couple d'especes
 }
 \description{
-Cette fonction calcule la moyenne d'un vecteur numerique en
-omettant les valeurs manquantes si l'utilisateur le souhaite.
+Cette fonction calcule d'interactions entre especes d'un meme niveau trophique via un une espece d'un
+niveau trophique different.Les especes en interactions sont independantes. Exemple:calcule l'indice de Muller pour
+des interactions inter annuelles entre cultures via le partage de pollinisateurs.
 }
 \examples{
 moyenne(c(2, 4))
