@@ -1,12 +1,15 @@
-#' @title Exemple d'un jeu de donnees interne
-#' @description Un jeu de donnees fictif illustrant la construction d'un
-#' exemple reproductible interne
+#' @title Data base of cultures between 2015 and 2018
+#' @description This data base contains the relative abundance of pollinisators 
+#'              in different types of culture fields.
 #'
-#' @format Un data frame avec 9 lignes et 2 colonnes :
+#' @format A dataframe with 198 columns and 24 rows
 #' \describe{
-#'   \item{x}{valeurs tirees aleatoirement dans une distribution normale}
-#'   \item{y}{sequences de 2 a 9 avec une valeur manquante}
+#'   \item{X}{Name and year of the culture type, id}
+#'   \item{Year}{Year of study for the culture type}
+#'   \item{Culture}{Type of culture}
+#'   \item{Abia_sericea}{This column and the following present for each ok the 195 species
+#'    its relative abundance in each culture and each year}
 #' }
-#' @source Random Number Generator (RNG): 1637
+#' @source CEBC (Centre d'Etude Biologique de Chize)
 #'
 "compo_new"
