@@ -9,4 +9,4 @@
 #' }
 #' @source Random Number Generator (RNG): 1637
 #'
-"xy"
+"compo_new"
