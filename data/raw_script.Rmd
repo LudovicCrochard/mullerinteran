@@ -44,6 +44,8 @@ res1516_1[,2:ncol(res1516_1)] <- apply(res1516_1[,2:ncol(res1516_1)], 2, as.nume
 res1516_1[is.na(res1516_1)]<-0
 res1516_1[196,]=apply(res1516_1, 2, sum)
 ```
+
+
 ```{r}
 muller <- function(ab_tab, start_year = 2015, start_crop = "Cereale", end_crop = "Colza", pol = "Abia_sericea"){
   
