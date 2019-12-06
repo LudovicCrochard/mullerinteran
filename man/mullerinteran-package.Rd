@@ -4,8 +4,8 @@
 \name{mullerinteran-package}
 \alias{mullerinteran}
 \alias{mullerinteran-package}
-\title{mullerinteran: Modify function PAC from package bipartite to calculate inter annual indirect efffects}
+\title{mullerinteran: Modify function PAC from package bipartite to calculate inter annual indirect efffects.}
 \description{
-The function calculate the interannual indirect effect between two crops for one pollinator species
+The function calculate the interannual indirect effect between two crops for one pollinator species.
 }
 \keyword{internal}
