@@ -4,19 +4,23 @@
 \alias{muller}
 \title{Effet indirect pour des interactions inter annuelles}
 \usage{
-muller(
-  ab_tab,
-  start_year = 2015,
-  start_crop = "Cereale",
-  end_crop = "Colza",
-  pol = "Abia_sericea"
-)
+muller(ab_tab, start_year = 2015, start_crop = "Cereale",
+  end_crop = "Colza", pol = "Abia_sericea")
 }
 \arguments{
-\item{x}{Une matrice}
+\item{ab_tab}{a dataframe}
+
+\item{start_year}{numeric}
+
+\item{start_crop}{a character}
+
+\item{end_crop}{a character}
+
+\item{pol}{a character}
 }
 \value{
-La fonction renvoie la valeur de l'indice de Muller pour chaque couple d'especes
+La fonction renvoie la valeur de l'indice de Muller pour une especes de pollinisateur pour un couple de
+culture et une annee
 }
 \description{
 Cette fonction calcule d'interactions entre especes d'un meme niveau trophique via un une espece d'un
@@ -24,6 +28,6 @@ niveau trophique different.Les especes en interactions sont independantes. Exemp
 des interactions inter annuelles entre cultures via le partage de pollinisateurs.
 }
 \examples{
-moyenne(c(2, 4))
+muller(ab_tab, start_year = 2015, start_crop = "Cereale", end_crop = "Colza", pol = "Abia_sericea")
 
 }

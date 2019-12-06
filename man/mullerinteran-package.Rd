@@ -6,7 +6,6 @@
 \alias{mullerinteran-package}
 \title{mullerinteran: Modify function PAC from package bipartite to calculate inter annual indirect efffects}
 \description{
-More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+The function calculate the interannual indirect effect between two crops for one pollinator species
 }
 \keyword{internal}
