@@ -22,9 +22,19 @@ The goal of mullerinteran is to calculate the interannual indirect effect betwee
 
 
 ![](image/Indirect_effect.jpg)
+
+
 .
 
-![](image/calculate.JPG)
+
+
+
+![](./image/calculate.JPG)
+
+
+
+
+
 
 ## Installation
 
