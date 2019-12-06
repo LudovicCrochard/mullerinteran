@@ -10,11 +10,11 @@
 The goal of mullerinteran is to calculate the interannual indirect
 effect between two crops for one pollinator species
 
-![](image/Indirect_effect.jpg)
+![figure1](image/Indirect_effect.jpg)
 
 .
 
-![](./image/calculate.JPG)
+![figure2](./image/calculate.JPG)
 
 ## Installation
 
