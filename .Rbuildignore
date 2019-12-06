@@ -1,5 +1,8 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
-^data\raw_script.Rmd$
 ^README\.Rmd$
+^README\.md$
+^.*\.Rhistory$
+^image/*$
+^misc/*$

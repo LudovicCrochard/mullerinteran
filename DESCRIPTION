@@ -1,13 +1,13 @@
 Package: mullerinteran
 Type: Package
-Title: Modify function PAC from package bipartite to calculate inter annual indirect efffects.
+Title: Modify function PAC from package bipartite to calculate inter annual indirect efffects
 Version: 0.1.0
 Author: Juliette Langlois and Ludovic Crochard
 Maintainer: <ludovic.crochard@edu.mnhn.fr>
 Description: The function calculate the interannual indirect effect between two crops for one pollinator species.
 License: MIT + file LICENSE
+Depends: R (>= 2.10)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
-

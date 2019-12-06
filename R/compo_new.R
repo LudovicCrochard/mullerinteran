@@ -1,6 +1,5 @@
-#' @title Data base of cultures between 2015 and 2018
-#' @description This data base contains the relative abundance of pollinisators 
-#'              in different types of culture fields.
+#' Data base of cultures between 2015 and 2018
+#' This data base contains the relative abundance of pollinisators in different types of culture fields.
 #'
 #' @format A dataframe with 198 columns and 24 rows
 #' \describe{
@@ -10,6 +9,7 @@
 #'   \item{Abia_sericea}{This column and the following present for each ok the 195 species
 #'    its relative abundance in each culture and each year}
 #' }
+#'
 #' @source CEBC (Centre d'Etude Biologique de Chize)
 #'
 "compo_new"

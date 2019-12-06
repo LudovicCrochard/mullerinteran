@@ -1,8 +1,7 @@
-#' @title Effet indirect pour des interactions inter annuelles
-#' @description Cette fonction calcule d'interactions entre especes d'un meme niveau trophique via un une espece d'un
+#' Effet indirect pour des interactions inter annuelles
+#' Cette fonction calcule d'interactions entre especes d'un meme niveau trophique via un une espece d'un
 #' niveau trophique different.Les especes en interactions sont independantes. Exemple:calcule l'indice de Muller pour
 #' des interactions inter annuelles entre cultures via le partage de pollinisateurs.
-#'
 #'
 #' @param ab_tab a dataframe
 #' @param start_year numeric
@@ -11,11 +10,17 @@
 #' @param pol a character
 #'
 #' @return La fonction renvoie la valeur de l'indice de Muller pour une especes de pollinisateur pour un couple de
-#' culture et une annee
+#' culture et une annee.
 #'
+#' @export
 #'
 #' @examples
-#' muller(ab_tab, start_year = 2015, start_crop = "Cereale", end_crop = "Colza", pol = "Abia_sericea")
+#' data(compo_new)
+#'
+#' muller(
+#'   ab_tab = compo_new, start_year = 2015, start_crop = "Cereale",
+#'   end_crop = "Colza", pol = "Abia_sericea"
+#' )
 #'
 
 
