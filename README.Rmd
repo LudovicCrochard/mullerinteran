@@ -20,9 +20,11 @@ knitr::opts_chunk$set(
 
 The goal of mullerinteran is to calculate the interannual indirect effect between two crops for one pollinator species
 
+center[
 ![](image/Indirect_effect.jpg){width=40%}
 
 ![](image/calculate.JPG){width=40%}
+]
 
 ## Installation
 
