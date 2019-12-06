@@ -1,0 +1,11 @@
+#' @title Random dataset to run muller function
+#' 
+#' @format A dataframe with 4 lines and 6 columns
+#' \describe{
+#'   \item{Year}{years}
+#'   \item{Culture}{random words figuring crop names}
+#'   \item{sit}{this column and the others figure the realtive abundance of virtual species}
+#' }
+#' @source Random Number Generator (RNG): 1053
+#'
+"X"
