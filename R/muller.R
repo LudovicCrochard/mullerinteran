@@ -15,10 +15,10 @@
 #' @export
 #'
 #' @examples
-#' data(compo_new)
+#' data(X)
 #'
 #' muller(
-#'   ab_tab = compo_new, start_year = 2015, start_crop = "Cereale",
+#'   ab_tab = X, start_year = 2015, start_crop = "Cereale",
 #'   end_crop = "Colza", pol = "Abia_sericea"
 #' )
 #'
