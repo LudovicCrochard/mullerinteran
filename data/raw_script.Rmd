@@ -11,21 +11,21 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 #Community matrix for 2015 and 2016
-dfcompo1516=compo.new[-c(13:24),]
+dfcompo1516 = compo.new[-c(13:24),]
 ##Decomposition of the Muller index for each crop pair 2 to 2 and pollinator
-nom<- "poll_id" #Creation of the object "column name"
-a=0 #a allows to go fram one column to another
-X=(nrow(dfcompo1516)*nrow(dfcompo1516)-nrow(dfcompo1516)) #Calculation the number of columns for the table of results
-res<- as.data.frame(matrix(ncol=(X+1),nrow=ncol(dfcompo1516), NA)) #Creation of the results table
+nom <- "poll_id" #Creation of the object "column name"
+a = 0 #a allows to go fram one column to another
+X = (nrow(dfcompo1516)*nrow(dfcompo1516)-nrow(dfcompo1516)) #Calculation the number of columns for the table of results
+res <- as.data.frame(matrix(ncol=(X+1),nrow=ncol(dfcompo1516), NA)) #Creation of the results table
 colnames(res) <- c(nom) #assigning the name object to the table column
 
 for(i in 1:nrow(dfcompo1516)){
   for(j in (i+1): (nrow(dfcompo1516-1))){ #-1 avoids the calculation of the effect of the last plant on itself
-    a=a+2 #go to the next column for a calculation direction
+    a = a+2 #go to the next column for a calculation direction
     for(k in 1:ncol(dfcompo1516)){
-      res[k,1]=names(dfcompo1516)[k] #allows to give pollinator's name to the line
-      res[k,a]=(dfcompo1516[i,k]/sum(dfcompo1516[1:6,k])*(dfcompo1516[j,k]/sum(dfcompo1516[j,])))
-      res[k,a+1]=(dfcompo1516[j,k]/sum(dfcompo1516[1:6,k])*(dfcompo1516[i,k]/sum(dfcompo1516[i,]))) #calculation the effect for each pollinator
+      res[k,1] = names(dfcompo1516)[k] #allows to give pollinator's name to the line
+      res[k,a] = (dfcompo1516[i,k]/sum(dfcompo1516[1:6,k])*(dfcompo1516[j,k]/sum(dfcompo1516[j,])))
+      res[k,a+1] = (dfcompo1516[j,k]/sum(dfcompo1516[1:6,k])*(dfcompo1516[i,k]/sum(dfcompo1516[i,]))) #calculation the effect for each pollinator
     }
   }
 }
@@ -43,5 +43,70 @@ res1516_1=as.data.frame(res1516_1)
 res1516_1[,2:ncol(res1516_1)] <- apply(res1516_1[,2:ncol(res1516_1)], 2, as.numeric)
 res1516_1[is.na(res1516_1)]<-0
 res1516_1[196,]=apply(res1516_1, 2, sum)
+```
+```{r}
+muller <- function(ab_tab, start_year = 2015, start_crop = "Cereale", end_crop = "Colza", pol = "Abia_sericea"){
+  
+  #ab_tab = compo_new; start_year = 2015; start_crop = "Cereale"; end_crop = "Colza"; pol = "Abia_sericea"
+  
+  ## Checks
+  if (missing(ab_tab)) { stop("Missing ab_tab.") }
+  if (missing(start_year)) { stop("Missing start_year") }
+  if (missing(start_crop)) { stop("Missing start_crop") }
+  if (missing(end_crop)) { stop("Missing end_crop") }
+  if (missing(pol)) { stop("Missing pol") }
+  if (!is.data.frame(ab_tab)) { stop("ab_tab must be a dataframe.") }
+  
+  ## Compute end year
+  end_year <- start_year + 1
+  
+  ## Left nominator
+# Relab of pol in start_crop at start_year
+  alpha_ij <- subset(ab_tab, Year == start_year)
+  alpha_ij <- subset(alpha_ij, Culture == start_crop)
+  alpha_ij <- alpha_ij[, colnames(alpha_ij) == pol]
+  
+  ## Right_nominator
+# Relab of pol in end_crop at end_year
+  alpha_ip <- subset(ab_tab, Year == end_year)
+  alpha_ip <- subset(alpha_ip, Culture == end_crop)
+  alpha_ip <- alpha_ip[, colnames(alpha_ip) == pol]
+  
+  ## Compute the left denominator
+# Sum of the relab of one species on all the crops for one year
+  pol_an       <- subset(ab_tab, Year == start_year )
+  pol_an       <- pol_an[, colnames(pol_an) == pol]
+  sum_alpha_il <- sum(pol_an)
+  
+  ## Compute the right denominator
+# Sum of all the relab of all the species in one crop
+  cult_an      <- subset(ab_tab, Year == end_year)
+  cult_an      <- subset(cult_an, Culture == end_crop)
+  sp_cult_an   <- cult_an[grep(pattern = "_", x = colnames(cult_an))] # select the column with species relab only
+  sum_alpha_pi <- sum(sp_cult_an)
+  
+  ## effect of the relab of pol on start_crop in start_year on relab of pol on end_crop in end_year
+  d_ijp <- (alpha_ij/sum_alpha_il) * (alpha_ip/sum_alpha_pi)
+  d_ijp
+  } #eo muller
+
+sp_list    <- colnames(compo_new[grep(pattern = "_", x = colnames(compo_new))])
+start_year <- 2015
+end_year   <- 2016
+start_crop <- "Colza"
+end_crop   <- "Tournesol"
+crop       <- as.character(unique(compo_new$Culture))
+
+all_2015_2016           <- do.call(cbind, lapply(crop, function(cs){
+  do.call(cbind, lapply(crop, function(ce){
+  do.call(rbind, lapply(sp_list, muller, ab_tab = compo_new, start_year = 2015, start_crop = cs, end_crop = ce))}))
+}))
+rownames(all_2015_2016) <- sp_list
+colnames(all_2015_2016) <- do.call(cbind, lapply(crop, function(cs){
+  do.call(cbind, lapply(crop, function(ce){
+  paste(paste0(cs, start_year), paste0(ce, end_year), sep = "_")}))
+}))  
+
+
 ```
 
