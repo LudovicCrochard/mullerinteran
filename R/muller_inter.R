@@ -17,14 +17,14 @@
 #' @examples
 #' data(X)
 #'
-#' muller(
+#' muller_inter(
 #'   ab_tab = X, start_year = 2015, start_crop = "Cereale",
 #'   end_crop = "Colza", pol = "Abia_sericea"
 #' )
 #'
 
 
-muller <- function(ab_tab, start_year = 2015, start_crop = "Cereale", end_crop = "Colza", pol = "Abia_sericea"){
+muller_inter <- function(ab_tab, start_year = 2015, start_crop = "Cereale", end_crop = "Colza", pol = "Abia_sericea"){
 
   #ab_tab = compo_new; start_year = 2015; start_crop = "Cereale"; end_crop = "Colza"; pol = "Abia_sericea"
 
