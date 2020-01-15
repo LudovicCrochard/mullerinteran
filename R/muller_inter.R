@@ -41,8 +41,8 @@ muller_inter <- function(ab_tab, start_year = 2015, start_crop = "Cereale", end_
 
   ## Left nominator
   # Relab of pol in start_crop at start_year
-  alpha_ij <- subset(ab_tab, Year == start_year)
-  alpha_ij <- subset(alpha_ij, Culture == start_crop)
+  alpha_ij <- subset(ab_tab, year == start_year)
+  alpha_ij <- subset(alpha_ij, crop == start_crop)
   alpha_ij <- alpha_ij[, colnames(alpha_ij) == pol]
 
   ## Right_nominator
@@ -53,14 +53,14 @@ muller_inter <- function(ab_tab, start_year = 2015, start_crop = "Cereale", end_
 
   ## Compute the left denominator
   # Sum of the relab of one species on all the crops for one year
-  pol_an       <- subset(ab_tab, Year == start_year )
+  pol_an       <- subset(ab_tab, year == start_year )
   pol_an       <- pol_an[, colnames(pol_an) == pol]
   sum_alpha_il <- sum(pol_an)
 
   ## Compute the right denominator
   # Sum of all the relab of all the species in one crop
-  cult_an      <- subset(ab_tab, Year == end_year)
-  cult_an      <- subset(cult_an, Culture == end_crop)
+  cult_an      <- subset(ab_tab, year == end_year)
+  cult_an      <- subset(cult_an, crop == end_crop)
   sp_cult_an   <- cult_an[grep(pattern = "_", x = colnames(cult_an))] # select the column with species relab only
   sum_alpha_pi <- sum(sp_cult_an)
 
