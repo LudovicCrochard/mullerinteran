@@ -47,8 +47,8 @@ muller_inter <- function(ab_tab, start_year = 2015, start_crop = "Cereale", end_
 
   ## Right_nominator
   # Relab of pol in end_crop at end_year
-  alpha_ip <- subset(ab_tab, Year == end_year)
-  alpha_ip <- subset(alpha_ip, Culture == end_crop)
+  alpha_ip <- subset(ab_tab, year == end_year)
+  alpha_ip <- subset(alpha_ip, crop == end_crop)
   alpha_ip <- alpha_ip[, colnames(alpha_ip) == pol]
 
   ## Compute the left denominator
